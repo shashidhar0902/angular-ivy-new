@@ -1,0 +1,29 @@
+<div class="card">
+  <div class="card-header">
+    <div class="row">
+      <h1>API Working</h1>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <th>Name</th>
+            <th>position</th>
+            <th>Office</th>
+            <th>Salary</th>
+          </thead>
+          <tbody>
+            <td *ngFor='let l of details;'>
+              <tr>{{l.id}}</tr>
+              <tr>{{l.user_id}}</tr>
+              <tr>{{l.title}}</tr>
+              <tr>{{l.body}}</tr>
+            </td>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
