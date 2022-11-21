@@ -8,19 +8,15 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ShowApiComponent implements OnInit {
   details: IDetail[];
-  det: IDetail;
   constructor(private http: HttpClient) {}
   ngOnInit() {
     this.http
       .get('https://gorest.co.in/public/v2/posts')
-      .subscribe((Response) => {
+      .subscribe((Response : IDetail[]) =>  {
         // If response comes hideloader() function is called
         // to hide that loader
-        console.log('Response');
         console.log(Response);
-        this.det = Response;
-        this.details = this.det.list;
-        console.log(this.det + "csdaf");
+        this.details = Response;
       });
   }
 }
