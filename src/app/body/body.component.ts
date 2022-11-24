@@ -9,14 +9,13 @@ import { bodyService } from './body.service';
 })
 
 export class BodyComponent implements OnInit {
-  imageLink="https://picsum.photos/536/354";
+  imageLink="https://shashidhar0902.github.io/images/Pic1.jpg";
   constructor(private bodyservice: bodyService) { }
   name: string ;
 
   rotate180opt: boolean = false;
   resetImg: boolean = true;
   degg:number = 0;
-  //degg = 24;
 
   rotate180(){
     this.rotate180opt = ! this.rotate180opt;
@@ -30,17 +29,23 @@ export class BodyComponent implements OnInit {
   reduce50(){
     this.reducestat = !this.reducestat;
   }
-  ngOnInit() {
 
+  Details: IDetail[] = [];
+
+  ngOnInit() {
+    this.bodyservice.getDetails().subscribe((Response =>{
+      this.Details = Response;
+    }));
   }
-  Details: IDetail[] = this.bodyservice.getDetails();
 
   temp:IDetail;
-  getBranch(){
-    this.temp = this.Details.find(detail => detail.Name==this.name);
-    if(this.temp){
-      return this.temp.Department;
-    }   
-  }
 
+  getBranch(){
+    if(this.Details.length && this.name){
+      this.temp = this.Details.find(detail => detail.Name.toLowerCase()==this.name.toLowerCase());
+      if(this.temp){
+        return this.temp.Department;
+      }
+    }
+  }
 }
