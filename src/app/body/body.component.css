@@ -46,6 +46,12 @@ button{
 
 label{
   margin: 2px;
-  padding: 2%;
+  padding: 1%;
+  border-radius: 5px;
   background-color: rgba(110, 9, 9, 0.171);
+}
+
+input{
+  padding: 1%;
+  box-shadow:yellowgreen;
 }

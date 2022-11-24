@@ -15,7 +15,7 @@ export class BodyComponent implements OnInit {
 
   rotate180opt: boolean = false;
   resetImg: boolean = true;
-  degg:number = 0;
+
 
   rotate180(){
     this.rotate180opt = ! this.rotate180opt;
